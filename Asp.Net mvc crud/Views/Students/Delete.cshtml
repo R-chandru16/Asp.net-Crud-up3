@@ -1,0 +1,121 @@
+﻿@model Asp.net_student.Models.Student
+
+
+@{
+
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Delete</title>
+
+</head>
+
+<body>
+
+    <h3>Are you sure you want to delete this?</h3>
+
+    @using (Html.BeginForm())
+
+    {
+
+        <fieldset>
+
+            <legend>Student</legend>
+
+
+
+          
+
+            <div class="display-label">
+
+                @Html.DisplayNameFor(model => model.Name)
+
+            </div>
+
+            <div class="display-field">
+
+                @Html.DisplayFor(model => model.Name)
+
+            </div>
+
+
+
+            <div class="display-label">
+
+                @Html.DisplayNameFor(model => model.Age)
+
+            </div>
+
+            <div class="display-field">
+
+                @Html.DisplayFor(model => model.Age)
+
+            </div>
+
+
+
+            <div class="display-label">
+
+                @Html.DisplayNameFor(model => model.Phone)
+
+            </div>
+
+            <div class="display-field">
+
+                @Html.DisplayFor(model => model.Phone)
+
+            </div>
+
+
+
+            <div class="display-label">
+
+                @Html.DisplayNameFor(model => model.country)
+
+            </div>
+
+            <div class="display-field">
+
+                @Html.DisplayFor(model => model.country)
+
+            </div>
+
+
+
+            <div class="display-label">
+
+                @Html.DisplayNameFor(model => model.Gender)
+
+            </div>
+
+            <div class="display-field">
+
+                @Html.DisplayFor(model => model.Gender)
+
+            </div>
+
+        </fieldset>
+
+        <p>
+
+            <input id="Submit1" onclick="return confirm('Are you sure you want delete');"
+                   type="submit" value="Delete" />|
+
+            <button class="bottomNav" asp-controller="Students" asp-action="index">Back</button><br />
+
+        </p>
+
+    }
+
+</body>
+
+</html>

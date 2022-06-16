@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Students</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+</head>
+<body>
+    <header>
+
+        <!-- Page Loader -->
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+        </div>
+        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 shift" style="background-image: linear-gradient(to right,red,rgb(240, 227, 227),#8d251d,#ef4e13) ">*@
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 shift" style="background-image: linear-gradient(to right,rgb(212, 114, 114),rgb(233, 146, 146),#8d251d,#ef4e13) ">
+            <div class="container">
+
+                <a class="navbar-brand"><span class="logo"></span><img src="\image1.JPG" alt="#" style="width:60px;"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-area="" asp-controller="Users" asp-action="Index">Home</a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-area="" asp-controller="Students" asp-action=""></a>
+                        </li>
+
+
+                   
+
+                            @*<a href="@Url.Action("Index","Users")"><button class="btn">Log Out</button></a>*@
+                          
+
+
+                        
+                        @*<a class="navbar-brand" asp-area="" asp-controller="" asp-action="" onclick="return confirm('Are you sure you want to logout??')" />*@
+                          
+                       
+                    <li class="nav-item active">
+                        
+
+                            <h1 class="user-name">Welcome @TempData["Name"] !!!</h1>
+
+                        
+                       
+
+                    </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    @*<footer  class="flex-shrink-0 py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>Copyright &copy; Your Website</small>
+        </div>
+    </footer>*@
+    @*<footer class="border-top footer text-muted  bg-dark text-white-50">
+        <div class="container">
+            &copy; 2021 - Student - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="js/plugins.js"></script>
+    <script>
+        $(window).on("load", function () {
+            $('body').addClass('loaded');
+        });
+    </script>
+
+</body>
+</html>
+

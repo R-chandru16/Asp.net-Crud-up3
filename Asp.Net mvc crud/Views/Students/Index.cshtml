@@ -1,0 +1,135 @@
+﻿
+
+@model IEnumerable<Asp.net_student.Models.Student>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Students</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+</head>
+<body style="background-color: peachpuff !important ">
+
+    <a href="@Url.Action("Index","Users")">
+        @*<a class="navbar-brand" asp-area="" asp-controller="" asp-action="" onclick="return confirm('Are you sure you want to logout??')" />*@
+        @*<a class="fa fa-sign-out" style="font-size:24px;color:red; padding-left:1000px" onclick="return confirm('Are you sure you want to logout??')"> Log out</button>*@
+            <div style="font-size:24px;color:red; padding-left:1000px">
+                <a class="fa fa-sign-out" asp-controller="Users" asp-action="index" onclick="return confirm('Are you sure you want to logout??')">
+                    Log out</a>
+                  
+            </div>
+
+        <div class="btn">
+            &nbsp;&nbsp;
+            @*<form asp-action="index" method="post">
+                <div class="row input-group">
+                    <input type="text" name="search" id="search" class="form-control" />
+                    <div class="input-group-btn">
+                        <input type="submit" value="search" class="btn btn-primary" />
+
+                    </div>
+                </div>
+            </form>*@
+            @using (Html.BeginForm("Index", "Students", FormMethod.Post))
+            {
+                <div>
+                    search by: @Html.TextBox("search")
+                    <input id="search" name="search" type="submit" value="search" />
+                </div>
+            }
+
+
+
+        </div>
+
+        <table class="table table-bordered" style="color:red; ">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Age)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DepartmentId)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.country)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EnrollmentDate)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartmentId)
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                    </td>
+
+                    <td>
+                        <a href="@Url.Action("Details","Students",new { id=item.Id})" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
+                        <a href="@Url.Action("Edit","Students",new { id=item.Id})" class="btn btn-sm btn-info"><i class="fa fa-pencil-square"></i></a>
+                        <a href="@Url.Action("Delete","Students",new { id=item.Id})" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div class="pagination">
+
+            @await Html.PartialAsync("_Pagination", 10)
+
+        </div>
+</body>
+</html>
+
+
+
+
+
